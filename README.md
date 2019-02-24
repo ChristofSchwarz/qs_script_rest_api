@@ -1,6 +1,8 @@
 # Qlik script snippets working with REST connector
 
-Helpful Qlik script snippets in combination with REST connector. The WITH CONNECTION block has the magic to make a REST call dynamic and to pass variables defined before. 
+Helpful Qlik script snippets in combination with REST connector. For a demo visit https://youtu.be/7m9ZejlzkkY
+
+The WITH CONNECTION block has the magic to make a REST call dynamic and to pass variables defined before. 
 
 ```
 LET vBaseAPIurl = 'https://jsonplaceholder.typicode.com/todos';
