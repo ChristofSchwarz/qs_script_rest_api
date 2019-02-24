@@ -34,7 +34,7 @@ WITH CONNECTION (
 ); 
 ```
 
-##Autocalendar Fields
+## Autocalendar Fields
 If you write script yourself, not using the Add Data wizard, you won't get the auto-calendar dimensions unless you copy/paste this block at the end of your script. Edit the line that says "DERIVE FIELDS" with your date field names.
 
 ```
