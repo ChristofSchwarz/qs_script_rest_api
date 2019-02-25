@@ -5,7 +5,7 @@ Helpful Qlik script snippets in combination with REST connector. For a demo visi
 
 Put your API base URL into a variable at the beginning of your script to be used in all the REST calls.
 ```
-LET vBaseAPIurl = 'https://jsonplaceholder.typicode.com/todos';
+LET vBaseAPIurl = 'https://blablabla.foo.com/api/v1';
 ```
 ### WITH CONNECTION block for copy/pasting
 The WITH CONNECTION block has the magic to make a REST call dynamic and to pass variables defined before. After you inserted your LOAD statement with the "Select Data" wizard, search for the end of the SQL SELECT block - it ends with _FROM JSON (...);_ - and copy/paste this:
