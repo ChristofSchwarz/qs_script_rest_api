@@ -16,6 +16,9 @@ Timestamp(
     , '$(TimestampFormat)'
 ) AS [isoDate]
 ```
+While Date#() and Time#() are text-to-number functions, Timestamp() is a number-to-text function. The purpose is to get 
+a nice format of the parsed date/time. The first page of the script (the part which is automatically created when you
+create the app) contains a variable with the TimestampFormat. That definition is reused here.
 
 ### Autocalendar Fields Code Snippet
 If you write script yourself (not using the Add Data wizard), your date fields won't get the auto-calendar dimensions (.Year, .YearMonth, .Month, .Week ...) unless you copy/paste below block at the end of your script. Edit the line that says "DERIVE FIELDS FROM" and put your date field names there.
