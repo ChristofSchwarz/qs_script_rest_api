@@ -49,9 +49,8 @@ END SUB
  // First call of API, put in a do-until loop with error handling so if the
  // the REST call was unsuccessful, a new token is requested and the call is retried
  
+SET ErrorMode = 0;  // ignore if there's an error. The sub CheckIfSuccessful will reset to 1
 DO
-
-    SET ErrorMode = 0;  // ignore if there's an error
     LIB CONNECT TO 'REST GET Request';
 
     buildings:
@@ -69,6 +68,6 @@ DO
         ,QUERY "pagesize" "1000"
     ); 
 
-	CALL CheckIfSuccessful(ScriptError);
+    CALL CheckIfSuccessful(ScriptError);
 LOOP UNTIL vSuccessful;    
  ```
