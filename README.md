@@ -8,7 +8,7 @@ Put your API base URL into a variable at the beginning of your script to be used
 LET vBaseAPIurl = 'https://jsonplaceholder.typicode.com/todos';
 ```
 ### WITH CONNECTION block for copy/pasting
-The WITH CONNECTION block has the magic to make a REST call dynamic and to pass variables defined before. After you inserted your LOAD statement with the "Select Data" wizard, search for the end of the SQL SELECT block, it ends with FROM JSON (...); and copy/paste this:
+The WITH CONNECTION block has the magic to make a REST call dynamic and to pass variables defined before. After you inserted your LOAD statement with the "Select Data" wizard, search for the end of the SQL SELECT block - it ends with _FROM JSON (...);_ - and copy/paste this:
 ```
 WITH CONNECTION (
     URL "$(vBaseAPIurl)/endpoint/method"
