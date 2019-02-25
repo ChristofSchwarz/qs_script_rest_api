@@ -16,9 +16,23 @@ Timestamp(
     , '$(TimestampFormat)'
 ) AS [isoDate]
 ```
-Note: While *Date#()* and *Time#()* are text-to-number functions, Timestamp() is a number-to-text function. The purpose is to get 
+Note: While **Date#()** and **Time#()** are text-to-number functions, **Timestamp()** is a number-to-text function. The purpose is to get 
 a nice format of the parsed date/time. The first page of the script (the part which is automatically created when you
 create the app) contains a variable with the TimestampFormat. That definition is reused here.
+
+### Writing ISO date format
+Put above string together with the **Date()** and **Time()** number-to-text functions, put a 'T' inbetween and add a 'Z' (or '.000Z' if the time has to have a milliseconds component). Below, we are putting the current date and time into a variable.
+```
+LET vDateTo = Date(Today(),'YYYY-MM-DD') & 'T' & Time(Now(), 'hh:mm:ss') & '.000Z';
+```
+Now lets send this vDateTo in a request-body to the API. The Select Block of the script is coming from the Select Data wizard, we just look at the relevant WITH CONNECTION part:
+```
+WITH CONNECTION (
+	URL "$(vBaseAPIurl)/api/endpoint"
+    ,HTTPHEADER "Authorization" "Bearer $(vToken)"
+    ,BODY "{""dateFrom"":""2018-01-01T00:00:00.000Z"",""dateTo":""$(vDateTo)""}"
+); 
+```
 
 ### Autocalendar Fields Code Snippet
 If you write script yourself (not using the Add Data wizard), your date fields won't get the auto-calendar dimensions (.Year, .YearMonth, .Month, .Week ...) unless you copy/paste below block at the end of your script. Edit the line that says "DERIVE FIELDS FROM" and put your date field names there.
@@ -52,3 +66,5 @@ FIELDS
 
 DERIVE FIELDS FROM FIELDS myDateField1, [My Date Field 2] USING [autoCalendar] ;
 ```
+Note: I commented out some of the sub-dimensions. Feel free to comment in what you need. 
+
