@@ -1,6 +1,7 @@
 # Qlik script snippets working with REST connector
 
-Helpful Qlik script snippets in combination with REST connector. For a demo visit https://youtu.be/7m9ZejlzkkY
+Helpful Qlik script snippets in combination with REST connector. For a demo visit https://youtu.be/7m9ZejlzkkY. The attached 
+<a href="https://github.com/ChristofSchwarz/qs_script_rest_api/blob/master/REST_example.qvf?raw=true">Sense App QVF</a> contains all the below script snippets. 
 
 Put your API base URL into a variable at the beginning of your script to be used in all the REST calls.
 ```
