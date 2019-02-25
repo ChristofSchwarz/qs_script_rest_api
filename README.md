@@ -27,12 +27,12 @@ I know, it has nothing to do with SQL, and I don't know why the developers of th
 The easiest way to provide Json in the API call is to  put the Json block first into a script variable and then to clean and format the variable. APIs typically expect strict notation, that means quotes around keys and values) e.g. {"key":"value"}
 ```
 // Define your Json-Body here
-SET vJsonFilter = {
+SET vJsonBody = {
   "dateFrom": "2018-01-01T00:00:00.000Z",
   "dateTo": "$(vDateTo)"
 };
 // replace 1xquote with 2xquote and remove line-break and tabulator chars
-LET vJsonFilter = PurgeChar(Replace(vJsonFilter,'"','""'),CHR(13)&CHR(10)&CHR(8));
+LET vJsonBody = PurgeChar(Replace(vJsonBody,'"','""'),CHR(13)&CHR(10)&CHR(8));
 ```
 ### Logic to try previous bearer token and get new one if needed
 <a href="https://github.com/ChristofSchwarz/qs_script_rest_api/blob/master/sub_try_request.md">See this script</a>
