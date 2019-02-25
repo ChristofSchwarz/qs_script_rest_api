@@ -24,17 +24,12 @@ SUB CheckIfSuccessful(vErr)
             "token_type",
             "expires_in",
             "expiration_time",
-            "error_message",
-            "__KEY_root",
-            (SELECT 
-                "@Value",
-                "__FK_mandant_id"
-            FROM "mandant_id" FK "__FK_mandant_id" ArrayValueAlias "@Value")
-        FROM JSON (wrap on) "root" PK "__KEY_root"
+            "error_message"
+        FROM JSON (wrap on) "root"
         WITH CONNECTION (
             URL "$(vBaseAPIurl)/api/Authentication"
-            ,QUERY "username" "leo.eibler"
-            ,QUERY "password" "orgatec23"
+            ,QUERY "username" "#####"
+            ,QUERY "password" "#####"
         ); 
         
         LET vToken = FieldValue('access_token', 1);
