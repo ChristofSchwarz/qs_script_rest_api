@@ -23,7 +23,7 @@ WITH CONNECTION (
 ```
 
 ### Working with JSON Body 
-The easiest way to provide Json in the API call is to  put the Json block first into a script variable and then to clean and format the variable. APIs typically expect strict notation, that means double-quotes around keys and values) e.g. {"key":"value"}
+The easiest way to provide Json in the API call is to  put the Json block first into a script variable and then to clean and format the variable. APIs typically expect strict notation, that means quotes around keys and values) e.g. {"key":"value"}
 ```
 // Define your Json-Body here
 SET vJsonFilter = {
