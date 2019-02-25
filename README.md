@@ -16,13 +16,10 @@ WITH CONNECTION (
     ,HTTPHEADER "Authorization" "Bearer $(vToken)"
     ,HTTPHEADER "Content-Type" "application/json"
     //,HTTPHEADER "X-HTTP-Method-Override" "PUT",
-    //,BODY "{""path"":""$(vAttribute)""}"
+    ,BODY "{""key"":""value""}"
     //,BODY "$(vJsonBody)"
 ); 
 ```
-
-### Logic to try previous bearer token and get new one if needed
-<a href="https://github.com/ChristofSchwarz/qs_script_rest_api/blob/master/sub_try_request.md">See this script</a>
 
 ### Working with JSON Body 
 It is easier syntax to first put the Json block (APIs typically expect strict notation, that means 
@@ -36,6 +33,8 @@ SET vJsonFilter = {
 // replace 1xquote with 2xquote and remove line-break and tabulator chars
 LET vJsonFilter = PurgeChar(Replace(vJsonFilter,'"','""'),CHR(13)&CHR(10)&CHR(8));
 ```
+### Logic to try previous bearer token and get new one if needed
+<a href="https://github.com/ChristofSchwarz/qs_script_rest_api/blob/master/sub_try_request.md">See this script</a>
 
 ## Autocalendar Fields
 If you write script yourself (not using the Add Data wizard), your date fields won't get the auto-calendar dimensions (.Year, .YearMonth, .Month, .Week ...) unless you copy/paste below block at the end of your script. Edit the line that says "DERIVE FIELDS FROM" and put your date field names there.
