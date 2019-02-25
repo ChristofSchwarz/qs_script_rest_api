@@ -63,9 +63,9 @@ DO
         "name"
     FROM JSON (wrap on) "root"
     WITH CONNECTION (
-        URL "$(vBaseAPIurl)/api/Buildings"
+        URL "$(vBaseAPIurl)/api/method"
         ,HTTPHEADER "Authorization" "Bearer $(vToken)"
-        ,QUERY "mandantId" "A9FC4B24E0C8A4AA70B4E8C2F4C418A7"
+        ,QUERY "pagesize" "1000"
     ); 
 
 	CALL CheckIfSuccessful(ScriptError);
