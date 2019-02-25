@@ -2,6 +2,8 @@
 
 Usually, date field detection works well when Qlik Sense uses the Add Data Wizard. But since we are writing script 
 ourselves when communicating with REST APIs, the proper date/time interpretation is up to you. 
+ 
+ <a href="https://github.com/ChristofSchwarz/qs_script_rest_api">Back to main</a>
 
 An ISO date format typically looks like this
 ```
