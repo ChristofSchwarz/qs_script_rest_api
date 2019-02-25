@@ -38,9 +38,9 @@ SUB CheckIfSuccessful(vErr)
         TRACE New Token is $(vToken);	
     ELSE
        	LET vErr = Num(vErr) & ' (' & Text(vErr) & ')';
-		TRACE Error $(vErr); 
+        TRACE Error $(vErr); 
         EXIT SCRIPT;
-	END IF
+    END IF
 END SUB
  ```
  ### Try and repeat logic to retrieve data
@@ -51,21 +51,15 @@ END SUB
  
 SET ErrorMode = 0;  // ignore if there's an error. The sub CheckIfSuccessful will reset to 1
 DO
+    // your REST select-data command goes in here 
     LIB CONNECT TO 'REST GET Request';
 
-    buildings:
-    LOAD 
-        id as buildingId
-        ,name as building
-    ;
+    RestConnectorMasterTable:
     SQL SELECT 
-        "id",
-        "name"
+        ...
     FROM JSON (wrap on) "root"
     WITH CONNECTION (
-        URL "$(vBaseAPIurl)/api/method"
-        ,HTTPHEADER "Authorization" "Bearer $(vToken)"
-        ,QUERY "pagesize" "1000"
+        ...
     ); 
 
     CALL CheckIfSuccessful(ScriptError);
