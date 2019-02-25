@@ -16,7 +16,7 @@ Timestamp(
     , '$(TimestampFormat)'
 ) AS [isoDate]
 ```
-While Date#() and Time#() are text-to-number functions, Timestamp() is a number-to-text function. The purpose is to get 
+Note: While *Date#()* and *Time#()* are text-to-number functions, Timestamp() is a number-to-text function. The purpose is to get 
 a nice format of the parsed date/time. The first page of the script (the part which is automatically created when you
 create the app) contains a variable with the TimestampFormat. That definition is reused here.
 
