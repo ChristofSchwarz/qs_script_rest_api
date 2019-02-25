@@ -36,7 +36,7 @@ LET vJsonFilter = PurgeChar(Replace(vJsonFilter,'"','""'),CHR(13)&CHR(10)&CHR(8)
 ### Logic to try previous bearer token and get new one if needed
 <a href="https://github.com/ChristofSchwarz/qs_script_rest_api/blob/master/sub_try_request.md">See this script</a>
 
-## Autocalendar Fields
+### Autocalendar Fields Code Snippet
 If you write script yourself (not using the Add Data wizard), your date fields won't get the auto-calendar dimensions (.Year, .YearMonth, .Month, .Week ...) unless you copy/paste below block at the end of your script. Edit the line that says "DERIVE FIELDS FROM" and put your date field names there.
 
 ```
