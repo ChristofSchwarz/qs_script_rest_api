@@ -18,7 +18,7 @@ Timestamp(
     , '$(TimestampFormat)'
 ) AS [isoDate]
 ```
-You would put that function in the block(s) AFTER _RestConnectorMasterTable: SQL SELECT .... FROM JSON ... WITH CONNECTION ();_ where 
+You would put that function in the block(s) AFTER _RestConnectorMasterTable: SQL SELECT ... FROM JSON ... WITH CONNECTION (...);_ where 
 the Select-Data wizard has placed the RESIDENT loads like this:
 
 ![alttext](https://github.com/ChristofSchwarz/pics/raw/master/ISODateTimeScript.png "screenshot")
