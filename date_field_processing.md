@@ -28,7 +28,7 @@ LET vDateTo = Date(Today(),'YYYY-MM-DD') & 'T' & Time(Now(), 'hh:mm:ss') & '.000
 Now lets send this vDateTo in a request-body to the API. The Select Block of the script is coming from the Select Data wizard, we just look at the relevant WITH CONNECTION part:
 ```
 WITH CONNECTION (
-	URL "$(vBaseAPIurl)/api/endpoint"
+    URL "$(vBaseAPIurl)/api/endpoint"
     ,HTTPHEADER "Authorization" "Bearer $(vToken)"
     ,BODY "{""dateFrom"":""2018-01-01T00:00:00.000Z"",""dateTo":""$(vDateTo)""}"
 ); 
@@ -41,16 +41,16 @@ If you write script yourself (not using the Add Data wizard), your date fields w
 [autoCalendar]: 
 DECLARE FIELD DEFINITION Tagged ('$date')
 FIELDS
-  Dual(Year($1), YearStart($1)) AS [Year] Tagged ('$axis', '$year')
-  ,Dual('Q'&Num(Ceil(Num(Month($1))/3)),Num(Ceil(NUM(Month($1))/3),00)) AS [Quarter] Tagged ('$quarter', '$cyclic')
-  ,Dual(Year($1)&'-Q'&Num(Ceil(Num(Month($1))/3)),QuarterStart($1)) AS [YearQuarter] Tagged ('$yearquarter', '$qualified')
-  ,Dual('Q'&Num(Ceil(Num(Month($1))/3)),QuarterStart($1)) AS [_YearQuarter] Tagged ('$yearquarter', '$hidden', '$simplified')
-  ,Month($1) AS [Month] Tagged ('$month', '$cyclic')
-  ,Dual(Year($1)&'-'&Month($1), monthstart($1)) AS [YearMonth] Tagged ('$axis', '$yearmonth', '$qualified')
-  ,Dual(Month($1), monthstart($1)) AS [_YearMonth] Tagged ('$axis', '$yearmonth', '$simplified', '$hidden')
-  ,Dual('W'&Num(Week($1),00), Num(Week($1),00)) AS [Week] Tagged ('$weeknumber', '$cyclic')
-  ,Date(Floor($1)) AS [Date] Tagged ('$axis', '$date', '$qualified')
-  ,Date(Floor($1), 'D') AS [_Date] Tagged ('$axis', '$date', '$hidden', '$simplified')
+    Dual(Year($1), YearStart($1)) AS [Year] Tagged ('$axis', '$year')
+    ,Dual('Q'&Num(Ceil(Num(Month($1))/3)),Num(Ceil(NUM(Month($1))/3),00)) AS [Quarter] Tagged ('$quarter', '$cyclic')
+    ,Dual(Year($1)&'-Q'&Num(Ceil(Num(Month($1))/3)),QuarterStart($1)) AS [YearQuarter] Tagged ('$yearquarter', '$qualified')
+    ,Dual('Q'&Num(Ceil(Num(Month($1))/3)),QuarterStart($1)) AS [_YearQuarter] Tagged ('$yearquarter', '$hidden', '$simplified')
+    ,Month($1) AS [Month] Tagged ('$month', '$cyclic')
+    ,Dual(Year($1)&'-'&Month($1), monthstart($1)) AS [YearMonth] Tagged ('$axis', '$yearmonth', '$qualified')
+    ,Dual(Month($1), monthstart($1)) AS [_YearMonth] Tagged ('$axis', '$yearmonth', '$simplified', '$hidden')
+    ,Dual('W'&Num(Week($1),00), Num(Week($1),00)) AS [Week] Tagged ('$weeknumber', '$cyclic')
+    ,Date(Floor($1)) AS [Date] Tagged ('$axis', '$date', '$qualified')
+    ,Date(Floor($1), 'D') AS [_Date] Tagged ('$axis', '$date', '$hidden', '$simplified')
 //   ,If (DayNumberOfYear($1) <= DayNumberOfYear(Today()), 1, 0) AS [InYTD] 
 //   ,Year(Today())-Year($1) AS [YearsAgo] 
 //   ,If (DayNumberOfQuarter($1) <= DayNumberOfQuarter(Today()),1,0) AS [InQTD] 
