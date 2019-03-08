@@ -59,6 +59,10 @@ DO
         ...
     FROM JSON (wrap on) "root"
     WITH CONNECTION (
+        URL "$(vBaseAPIurl)/api/endpoint"
+        ,HTTPHEADER "Authorization" "Bearer $(vToken)"
+        ...
+    );     
         ...
     ); 
 
