@@ -63,8 +63,6 @@ DO
         ,HTTPHEADER "Authorization" "Bearer $(vToken)"
         ...
     );     
-        ...
-    ); 
 
     CALL CheckIfSuccessful(ScriptError);
 LOOP UNTIL vSuccessful;    
