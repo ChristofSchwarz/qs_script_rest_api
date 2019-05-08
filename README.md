@@ -26,7 +26,7 @@ I know, it has nothing to do with SQL, and I don't know why the developers of th
 ### Working with JSON Body 
 The easiest way to provide Json in the API call is to  put the Json block first into a script variable and then to clean and format the variable. APIs typically expect strict notation, that means quotes around keys and values) e.g. {"key":"value"}
 ```
-// Define your Json-Body here
+// Define your Json-Body here in a variable 
 SET vJsonBody = {
   "dateFrom": "2018-01-01T00:00:00.000Z",
   "dateTo": "$(vDateTo)"
