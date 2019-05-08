@@ -1,5 +1,7 @@
- # Working with OData standard
+ # Qlik REST Connector works with OData Standard
  
+There is a OData connector in Qlik Web Connector Package https://help.qlik.com/en-US/connectors/Subsystems/Web_Connectors_help/Content/Connectors_QWC/Data-Source-Connectors/OData-Connector.htm which is chargeable. However, the OData Standard can be followed with a few step using the free REST Connector of Qlik Sense/QlikView.
+
  1. Set Key Generation strategy of the REST Connection which you are using to „Current Record“
  2. Use Add REST Connector Wizard to create the proper script for reading the first data page for you
  3. Before first LOAD block
