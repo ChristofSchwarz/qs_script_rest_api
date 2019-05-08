@@ -5,28 +5,29 @@
  3. Before first LOAD block
     - Create variable and start "DO" loop 
 ```
-LET skiptoken = '';
+LET vSkiptoken = '';
 DO
 ```
  4. In the first LOAD block, where it reads "RestConnectorMasterTable: SQL SELECT" 
     - (If missing add "odata.nextLink" as field)
     - Put right after the FROM JSON-line before the semicolon 
 ```
-WITH CONNECTION (QUERY "$skiptoken" "$(skiptoken)")
+WITH CONNECTION (QUERY "$skiptoken" "$(vSkiptoken)")
 ```
  5. Before "DROP RestConnectorMasterTable"
     - Parse the "$skiptoken" argument from odata.nextLink field
 ```
-  nextLink: LOAD Only(odata.nextLink) RESIDENT 'RestConnectorMasterTable';
-  LET nextlink = FieldValue('Only(odata.nextLink)', 1);
-  DROP TABLE nextLink;
-  LET skiptoken = TextBetween(nextlink & '&', '$skiptoken=', '&');
-  WHEN Len(nextlink) TRACE [nextLink $skiptoken=$(skiptoken)];
+  tNextLink: LOAD Only(odata.nextLink) AS __nextLink 
+  RESIDENT RestConnectorMasterTable;
+  LET vNextlink = FieldValue('__nextLink', 1);
+  DROP TABLE tNextLink;
+  LET vSkiptoken = TextBetween(vNextlink & '&', '$skiptoken=', '&');
+  WHEN Len(vSkiptoken) TRACE [nextLink $skiptoken=$(vSkiptoken)];
 ```    
  6. After "DROP RestConnectorMasterTable"
     - Close DO-Loop
 ```
-LOOP WHILE Len(nextlink);
+LOOP WHILE Len(vSkiptoken);
 ```
  
 
