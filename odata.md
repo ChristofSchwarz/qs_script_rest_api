@@ -12,7 +12,10 @@ DO
     - (If missing add "odata.nextLink" as field)
     - Put right after the FROM JSON-line before the semicolon 
 ```
-WITH CONNECTION (QUERY "$skiptoken" "$(vSkiptoken)")
+WITH CONNECTION (
+    // maybe you have to add other params, like URL, HTTPHEADER, BODY
+    QUERY "$skiptoken" "$(vSkiptoken)"
+)
 ```
  5. Before "DROP RestConnectorMasterTable"
     - Parse the "$skiptoken" argument from odata.nextLink field
