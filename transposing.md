@@ -18,7 +18,7 @@ LOAD *,
         ) AS __X,
 ;
 ```
-This introduces a new field "__X" with an increment.
+This introduces a new field "__X" with an restarting increment for each element.
 
  ## Fieldnames are delivered in the 1st element of response?
 
@@ -52,4 +52,6 @@ GENERIC LOAD
 RESIDENT RestConnectorMasterTable
 WHERE __FK_values_u0 > 0;
 ```
+GENERIC LOAD creates a data model structure like this. Each field gets a new table, which isn't unperformant, but maybe irritating for the developer. It is a bit of more scripting to get all fields back into >one< table.
+
 Enjoy.
